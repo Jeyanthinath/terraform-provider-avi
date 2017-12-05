@@ -7,10 +7,10 @@ package avi
 
 import "github.com/hashicorp/terraform/helper/schema"
 
-func dataSourceAviPool() *schema.Resource {
+func dataSourceAviNetworkProfile() *schema.Resource {
     return &schema.Resource{
-        Read:   ResourceAviPoolRead,
-        Schema: ResourcePoolSchema(),
+        Read:   ResourceAviNetworkProfileRead,
+        Schema: ResourceNetworkProfileSchema(),
 
     }
 }

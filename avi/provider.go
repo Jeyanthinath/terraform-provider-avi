@@ -50,6 +50,7 @@ func Provider() terraform.ResourceProvider {
 			"avi_virtualservice":                dataSourceAviVirtualService(),
 			"avi_networkprofile":                dataSourceAviNetworkProfile(),
 			"avi_applicationpersistenceprofile": dataSourceAviApplicationPersistenceProfile(),
+			"avi_vsvip":                         dataSourceAviVsVip(),
 		},
 		ResourcesMap: map[string]*schema.Resource{
 			"avi_pool":                          resourceAviPool(),
@@ -58,6 +59,7 @@ func Provider() terraform.ResourceProvider {
 			"avi_virtualservice":                resourceAviVirtualService(),
 			"avi_networkprofile":                resourceAviNetworkProfile(),
 			"avi_applicationpersistenceprofile": resourceAviApplicationPersistenceProfile(),
+			"avi_vsvip":						 resourceAviVsVip(),
 		},
 		ConfigureFunc: providerConfigure,
 	}
