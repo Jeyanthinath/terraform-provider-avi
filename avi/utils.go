@@ -79,18 +79,18 @@ func CommonHash(v interface{}) int {
 
 func ApiDataToSchema(adata interface{}, d *schema.ResourceData, t map[string]*schema.Schema) (interface{}, error) {
 	//log.Printf("Start Processing resource %v(%v)", adata, reflect.TypeOf(adata))
-	var allowedKeys = map[string]bool{
-		"name":                true,
-		"uuid":                true,
-		"fail_action":         true,
-		"health_monitor_refs": true,
-		"servers":             true,
-		"type":                true,
-		"ip":                  true,
-		"addr":                true,
-		"port":                true,
-		"url":                 true,
-	}
+	//var allowedKeys = map[string]bool{
+	//	"name":                true,
+	//	"uuid":                true,
+	//	"fail_action":         true,
+	//	"health_monitor_refs": true,
+	//	"servers":             true,
+	//	"type":                true,
+	//	"ip":                  true,
+	//	"addr":                true,
+	//	"port":                true,
+	//	"url":                 true,
+	//}
 
 	switch adata.(type) {
 	default:
@@ -100,15 +100,14 @@ func ApiDataToSchema(adata interface{}, d *schema.ResourceData, t map[string]*sc
 			var m map[string]interface{}
 			m = map[string]interface{}{}
 			for k, v := range adata.(map[string]interface{}) {
-				if _, ok := allowedKeys[k]; ok {
-					if obj, err := ApiDataToSchema(v, nil, nil); err == nil {
-						log.Printf("ApiDataToSchema: Processed resource k %v value: %v(%v)", k, obj)
-						m[k] = obj
-						//log.Printf("Updating map %v", m)
-					} else {
-						//log.Printf("Error in converting k: %v v: %v", k, v)
-					}
+				if obj, err := ApiDataToSchema(v, nil, nil); err == nil {
+					log.Printf("ApiDataToSchema: Processed resource k %v value: %v(%v)", k, obj)
+					m[k] = obj
+					//log.Printf("Updating map %v", m)
+				} else {
+					//log.Printf("Error in converting k: %v v: %v", k, v)
 				}
+
 			}
 			//var s schema.Set
 			objs := []interface{}{}

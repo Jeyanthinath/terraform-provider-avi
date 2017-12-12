@@ -5,32 +5,25 @@
  */
 package avi
 
-
 import (
-        "github.com/hashicorp/terraform/helper/schema"
+	"github.com/hashicorp/terraform/helper/schema"
 )
- func ResourceClientInsightsSamplingSchema() *schema.Resource {
-    return &schema.Resource{
-        Schema: map[string]*schema.Schema{
-             "client_ip" :&schema.Schema{
-                             Type: schema.TypeSet, 
-                             Optional: true,
-                                                                                                                 Elem: ResourceIpAddrMatchSchema(),                             },
-             "sample_uris" :&schema.Schema{
-                             Type: schema.TypeSet, 
-                             Optional: true,
-                                                                                                                 Elem: ResourceStringMatchSchema(),                             },
-             "skip_uris" :&schema.Schema{
-                             Type: schema.TypeSet, 
-                             Optional: true,
-                                                                                                                 Elem: ResourceStringMatchSchema(),                             },
-                                "url": &schema.Schema{
-                                Type:     schema.TypeString,
-                                Optional: true,
-                                Computed: true,
-                            },
-        },
-    }
+
+func ResourceClientInsightsSamplingSchema() *schema.Resource {
+	return &schema.Resource{
+		Schema: map[string]*schema.Schema{
+			"client_ip": &schema.Schema{
+				Type:     schema.TypeSet,
+				Optional: true,
+				Set:      func(v interface{}) int { return 0 }, Elem: ResourceIpAddrMatchSchema()},
+			"sample_uris": &schema.Schema{
+				Type:     schema.TypeSet,
+				Optional: true,
+				Set:      func(v interface{}) int { return 0 }, Elem: ResourceStringMatchSchema()},
+			"skip_uris": &schema.Schema{
+				Type:     schema.TypeSet,
+				Optional: true,
+				Set:      func(v interface{}) int { return 0 }, Elem: ResourceStringMatchSchema()},
+		},
+	}
 }
-
-

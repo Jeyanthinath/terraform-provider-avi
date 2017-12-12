@@ -8,10 +8,8 @@ package avi
 import "github.com/hashicorp/terraform/helper/schema"
 
 func dataSourceAviApplicationProfile() *schema.Resource {
-    return &schema.Resource{
-        Read:   ResourceAviApplicationProfileRead,
-        Schema: ResourceApplicationProfileSchema(),
-
-    }
+	return &schema.Resource{
+		Read:   ResourceAviApplicationProfileRead,
+		Schema: ResourceApplicationProfileSchema(),
+	}
 }
-

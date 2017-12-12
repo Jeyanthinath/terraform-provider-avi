@@ -5,28 +5,21 @@
  */
 package avi
 
-
 import (
-        "github.com/hashicorp/terraform/helper/schema"
+	"github.com/hashicorp/terraform/helper/schema"
 )
- func ResourcePerformanceLimitsSchema() *schema.Resource {
-    return &schema.Resource{
-        Schema: map[string]*schema.Schema{
-             "max_concurrent_connections" :&schema.Schema{
-                             Type: schema.TypeInt, 
-                             Optional: true,
-                                                                                                                                            },
-             "max_throughput" :&schema.Schema{
-                             Type: schema.TypeInt, 
-                             Optional: true,
-                                                                                                                                            },
-                                "url": &schema.Schema{
-                                Type:     schema.TypeString,
-                                Optional: true,
-                                Computed: true,
-                            },
-        },
-    }
+
+func ResourcePerformanceLimitsSchema() *schema.Resource {
+	return &schema.Resource{
+		Schema: map[string]*schema.Schema{
+			"max_concurrent_connections": &schema.Schema{
+				Type:     schema.TypeInt,
+				Optional: true,
+			},
+			"max_throughput": &schema.Schema{
+				Type:     schema.TypeInt,
+				Optional: true,
+			},
+		},
+	}
 }
-
-

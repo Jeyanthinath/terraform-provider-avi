@@ -8,10 +8,8 @@ package avi
 import "github.com/hashicorp/terraform/helper/schema"
 
 func dataSourceAviHealthMonitor() *schema.Resource {
-    return &schema.Resource{
-        Read:   ResourceAviHealthMonitorRead,
-        Schema: ResourceHealthMonitorSchema(),
-
-    }
+	return &schema.Resource{
+		Read:   ResourceAviHealthMonitorRead,
+		Schema: ResourceHealthMonitorSchema(),
+	}
 }
-

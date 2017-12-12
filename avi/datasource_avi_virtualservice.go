@@ -8,10 +8,8 @@ package avi
 import "github.com/hashicorp/terraform/helper/schema"
 
 func dataSourceAviVirtualService() *schema.Resource {
-    return &schema.Resource{
-        Read:   ResourceAviVirtualServiceRead,
-        Schema: ResourceVirtualServiceSchema(),
-
-    }
+	return &schema.Resource{
+		Read:   ResourceAviVirtualServiceRead,
+		Schema: ResourceVirtualServiceSchema(),
+	}
 }
-

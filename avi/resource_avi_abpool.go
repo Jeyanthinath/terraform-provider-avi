@@ -5,28 +5,20 @@
  */
 package avi
 
-
 import (
-        "github.com/hashicorp/terraform/helper/schema"
+	"github.com/hashicorp/terraform/helper/schema"
 )
- func ResourceAbPoolSchema() *schema.Resource {
-    return &schema.Resource{
-        Schema: map[string]*schema.Schema{
-             "pool_ref" :&schema.Schema{
-                             Type: schema.TypeString, 
-                             Required: true,
-                                                                                      Elem:&schema.Schema{Type: schema.TypeString},                             },
-             "ratio" :&schema.Schema{
-                             Type: schema.TypeInt, 
-                             Optional: true,
-                                                                                                                                            },
-                                "url": &schema.Schema{
-                                Type:     schema.TypeString,
-                                Optional: true,
-                                Computed: true,
-                            },
-        },
-    }
+
+func ResourceAbPoolSchema() *schema.Resource {
+	return &schema.Resource{
+		Schema: map[string]*schema.Schema{
+			"pool_ref": &schema.Schema{
+				Type:     schema.TypeString,
+				Required: true},
+			"ratio": &schema.Schema{
+				Type:     schema.TypeInt,
+				Optional: true,
+			},
+		},
+	}
 }
-
-

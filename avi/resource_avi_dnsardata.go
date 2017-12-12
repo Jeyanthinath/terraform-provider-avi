@@ -5,24 +5,16 @@
  */
 package avi
 
-
 import (
-        "github.com/hashicorp/terraform/helper/schema"
+	"github.com/hashicorp/terraform/helper/schema"
 )
- func ResourceDnsARdataSchema() *schema.Resource {
-    return &schema.Resource{
-        Schema: map[string]*schema.Schema{
-             "ip_address" :&schema.Schema{
-                             Type: schema.TypeSet, 
-                             Required: true,
-                                                                                     Elem: ResourceIpAddrSchema(),                             },
-                                "url": &schema.Schema{
-                                Type:     schema.TypeString,
-                                Optional: true,
-                                Computed: true,
-                            },
-        },
-    }
+
+func ResourceDnsARdataSchema() *schema.Resource {
+	return &schema.Resource{
+		Schema: map[string]*schema.Schema{
+			"ip_address": &schema.Schema{
+				Type:     schema.TypeSet,
+				Required: true, Set: func(v interface{}) int { return 0 }, Elem: ResourceIpAddrSchema()},
+		},
+	}
 }
-
-
